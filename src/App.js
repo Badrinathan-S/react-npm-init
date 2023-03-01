@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import "./App.css";
+import ErrorBoundries from "./components/ErrorBoundries";
 import Header from "./components/Header";
 import Home from "./components/home";
 import Page1 from "./components/page1";
@@ -15,7 +16,14 @@ const App = () => {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/page1" element={<Page1 />} />
-          <Route path="/page2" element={<Page2 />} />
+          <Route
+            path="/page2"
+            element={
+              <ErrorBoundries>
+                <Page2 />
+              </ErrorBoundries>
+            }
+          />
           <Route path="/page3" element={<Page3 />} />
         </Routes>
         <div className="list">
