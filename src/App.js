@@ -7,6 +7,12 @@ import Home from "./components/home";
 import Page1 from "./components/page1";
 import Page2 from "./components/page2";
 import Page3 from "./components/page3";
+import Dashboard from "./components/poc/Dashboard";
+import HomeTemplate from "./components/poc/HeaderTemplate";
+import NewPost from "./components/poc/NewPost";
+import PocHeader from "./components/poc/PocHeader";
+import Recentpost from "./components/poc/Recentpost";
+
 
 const App = () => {
   return (
@@ -25,23 +31,14 @@ const App = () => {
             }
           />
           <Route path="/page3" element={<Page3 />} />
+          <Route path="/poc" element={<PocHeader />} />
+          <Route path="/poc" element={<HomeTemplate />}>
+            <Route index element={<Dashboard />} />
+            <Route path="/poc/home" element={<Dashboard />} />
+            <Route path="/poc/newpost" element={<NewPost />} />
+            <Route path="/poc/recentpost" element={<Recentpost />} />
+          </Route>
         </Routes>
-        <div className="list">
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="page1">Page 1</Link>
-            </li>
-            <li>
-              <Link to="page2">Page 2</Link>
-            </li>
-            <li>
-              <Link to="page3">Page 3</Link>
-            </li>
-          </ul>
-        </div>
       </Router>
     </div>
   );

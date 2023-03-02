@@ -4,19 +4,19 @@ const HTMLWebpackPlugin = require("html-webpack-plugin");
 // module.exports = {
 //   entry: "./src/index.js",
 
-  // output: {
-  //   path: path.join(__dirname, "/build"),
-  //   filename: "bundle.js",
-  // },
+// output: {
+//   path: path.join(__dirname, "/build"),
+//   filename: "bundle.js",
+// },
 
-  // plugins: [
-  //   new HTMLWebpackPlugin({
-  //     template: "./public/index.html",
-  //   }),
-  // ],
+// plugins: [
+//   new HTMLWebpackPlugin({
+//     template: "./public/index.html",
+//   }),
+// ],
 
 //   module: {
-//     rules: [ //rules for the compiler to follow 
+//     rules: [ //rules for the compiler to follow
 //       {
 //         test: /\.(js|jsx)$/,
 //         exclude: /node_modules/,
@@ -55,10 +55,10 @@ module.exports = {
     open: true,
     hot: true,
     liveReload: true,
-    historyApiFallback: true
+    historyApiFallback: true,
   },
-  resolve:{
-    extensions: ['.js', '.jsx', '.json', '.css']
+  resolve: {
+    extensions: [".js", ".jsx", ".json", ".css"],
   },
   module: {
     rules: [
@@ -69,8 +69,13 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"]
-      }
-    ]
-  }
-}
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.js$/,
+        enforce: "pre",
+        use: ["source-map-loader"],
+      },
+    ],
+  },
+};

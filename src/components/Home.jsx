@@ -12,7 +12,6 @@ const Home = () => {
     axios
       .get(`${baseUrl}/posts`)
       .then((res) => {
-        console.log(res.data);
         setPosts(res.data);
       })
       .catch((e) => {
